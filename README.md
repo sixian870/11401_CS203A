@@ -13,5 +13,5 @@
 - `projects/` - 專案程式碼
 
 ## 聯絡
-- GitHub: https://github.com/sixian870. 
+- GitHub: https://github.com/sixian870
 - 校內信箱: s1131530@mail.yzu.edu.tw
