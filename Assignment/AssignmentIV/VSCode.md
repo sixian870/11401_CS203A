@@ -14,7 +14,7 @@ Before you begin, ensure you have the following:
     - Search for "GitHub Pull Requests and Issues" and install the extension.
 
 2. **Sign in to GitHub**
-    - Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
+    - Open the Command Palette (`Ctrl+Shift+P` on Windows 11).
     - Type `GitHub: Sign in` and select the option.
     - Follow the prompts to authenticate with your GitHub account.
 
@@ -23,15 +23,20 @@ Before you begin, ensure you have the following:
     - Type `Git: Clone` and select the option.
     - Paste the URL of your GitHub repository when prompted.
     - Choose a local folder where the repository will be cloned.
+    - Create two folders by myself, named C and CXX.
+    - Download the source files from GitHub to my File Explorer and then put them into VS Code.
 
 4. **Open the Repository**
     - Once the repository is cloned, VSCode will prompt you to open it.
     - Click `Open` to start working on your project.
 
+
 5. **Make Changes and Commit**
     - Edit files in the repository as needed.
     - Go to the Source Control view in VSCode.
     - Stage your changes, write a commit message, and commit the changes.
+    - After my first commit, an error message appeared. Used `git status` to check the status and found that VS Code and GitHub had duplicate commit records.
+    - Used `git pull` and then `git push` to solve the problem.
 
 6. **Push Changes to GitHub**
     - After committing, click the `Sync Changes` button in the Source Control view.
