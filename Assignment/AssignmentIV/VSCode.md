@@ -4,6 +4,7 @@
 Before you begin, ensure you have the following:
 - Visual Studio Code installed on your computer. [Download VS Code here](https://code.visualstudio.com/)
 - Git installed and configured on your system. [Download Git here](https://git-scm.com/).
+- Download and install the latest version if the MinGW installer is outdated.
 - A GitHub account.
 
 ## Steps to Connect to GitHub
@@ -35,12 +36,12 @@ Before you begin, ensure you have the following:
     - Edit files in the repository as needed.
     - Go to the Source Control view in VSCode.
     - Stage your changes, write a commit message, and commit the changes.
-    - After my first commit, an error message appeared. Used `git status` to check the status and found that VS Code and GitHub had duplicate commit records.
-    - Used `git pull` and then `git push` to solve the problem.
 
 6. **Push Changes to GitHub**
     - After committing, click the `Sync Changes` button in the Source Control view.
     - This will push your changes to the GitHub repository.
+    - After my first commit, an error message appeared. Used `git status` to check the status and found that VS Code and GitHub had duplicate commit records.
+    - Used `git pull` and then `git push` to solve the problem.
 
 ## Additional Tips
 - Use the built-in terminal in VSCode for advanced Git commands.
