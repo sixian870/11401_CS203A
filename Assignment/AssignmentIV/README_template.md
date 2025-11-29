@@ -33,9 +33,9 @@ Email: [alice0701lee@gmail.com]
 ## Results
 | Table Size (m) | Index Sequence         | Observation              |
 |----------------|------------------------|--------------------------|
-| 10             | 1, 2, 3, 4, ...        | Pattern repeats every 10 |
-| 11             | 10, 0, 1, 2, ...       | More uniform             |
-| 37             | 20, 21, 22, 23, ...    | Near-uniform             |
+| 10             | 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0   | Pattern repeats every 10 |
+| 11             | 10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5 | More uniform             |
+| 37             | 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | Near-uniform             |
 
 ## Compilation, Build, Execution, and Output
 
