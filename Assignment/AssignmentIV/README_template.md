@@ -110,75 +110,24 @@ Email: [alice0701lee@gmail.com]
 ### Result Snapshot
 - Example output for integers:
   ```
-  === Hash Function Observation (C Version) ===
-
-  === Table Size m = 10 ===
-  Key     Index
-  -----------------
-  21      1
-  22      2
-  ...
-
-  === Table Size m = 11 ===
-  Key     Index
-  -----------------
-  21      10
-  22      0
-  ...
-
-  === Table Size m = 37 ===
-  Key     Index
-  -----------------
-  21      21
-  22      22
-  ...
-
-  === Hash Function Observation (C++ Version) ===
-
-  === Table Size m = 10 ===
-  Key     Index
-  -----------------
-  21      1
-  22      2
-  ...
-
-  === Table Size m = 11 ===
-  Key     Index
-  -----------------
-  21      10
-  22      0
-  ...
-
-  === Table Size m = 37 ===
-  Key     Index
-  -----------------
-  21      21
-  22      22
-  ...
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(1).png)
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(2).png)
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(3).png)
+  
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpp%20(1).png)
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpp%20(2).png)
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpp%20(3).png)
   ```
 
 - Example output for strings:
   ```
-  === String Hash (m = 10) ===
-  Key     Index
-  -----------------
-  cat     0
-  dog     0
-  ...
-
-  === String Hash (m = 11) ===
-  Key     Index
-  -----------------
-  cat     0
-  dog     0
-  ...
-
-  === String Hash (m = 37) ===
-  Key     Index
-  -----------------
-  cat     0
-  dog     0
-  ...
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(1).png)
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(2).png)
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(3).png)
+  
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(1).png)
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(2).png)
+  ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(3).png)
   ```
 
 - Observations: 整數與字串雜湊顯示，質數且較大的表格分布最均勻，碰撞最少。
