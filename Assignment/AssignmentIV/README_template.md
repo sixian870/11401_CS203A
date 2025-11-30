@@ -9,18 +9,47 @@ Email: [alice0701lee@gmail.com]
 
 ## My Hash Function
 ### Integer Keys 
-- Formula / pseudocode:
+- Formula:
   ```text
-  [Your implementation here]
+  h(k) = floor(m*(k*A mod 1)), 0 < A < 1
+  - k = key (integer)
+  - m = table size
+  - A = 0.6180339887 ≈ (golden ratio - 1)
+  - kA mod 1 = fractional part of kA
   ```
-- Rationale: [Explain your design choices and how they minimize collisions.]
+- Pseudocode:
+  ```text
+  A <- 0.6180339887
+  temp <- key * A
+  fractional <- temp - floor(t)
+  index <- floor(m * fractional)
+  ```
+- Rationale: 
+  - 參考課程所學 Multiplication Method 因為比起 Division Method 容易產生規律性碰撞，它不依賴資料特徵，能在各種 key 分佈下保持穩定表現。
+  - 使用 golden ratio (0.6180339887) 作為乘數 A，是因為不規則的無理數不會與 key 的某種規律產生共鳴，能減少碰撞。
 
 ### Non-integer Keys
-- Formula / pseudocode:
+- Formula:
   ```text
-  [Your implementation here]
+  h(s) = ( sum of ASCII(str[i]) * p^i ) mod m
+  - str[i] = 第i個字元
+  - p = 基底
+  - m = table size
   ```
-- Rationale: [Explain your approach and its effectiveness for non-integer keys.]
+  - Pseudocode:
+  ```text
+  hash <- 0
+  p <- 31
+  power <- 0
+  
+  For each character ch in str:
+    hash <- (hash + ASCII(ch) * power) mod m
+    power <- (power* p) mod m
+  ```
+- Rationale:
+  - 字串無法直接變成整數，所以要轉換成一個唯一的數值，參考 Polynomial Rolling Hash 技術，將每個字元依照位置計算權重。
+  - 為了避免 overflow，在p^i的部分加上 % m的步驟。
+  - p 選 31，是因為它是質數，能有效降低碰撞機率。
 
 ## Experimental Setup
 - Table sizes tested (m): 10, 11, 37
@@ -31,11 +60,11 @@ Email: [alice0701lee@gmail.com]
 - Standard: C23 and C++23
 
 ## Results
-| Table Size (m) | Index Sequence         | Observation              |
-|----------------|------------------------|--------------------------|
-| 10             | 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0   | Pattern repeats every 10 |
-| 11             | 10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 7, 8, 9, 10, 0, 1, 2, 3, 4, 5 | More uniform             |
-| 37             | 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | Near-uniform             |
+| Table Size (m) | Index Sequence                                                            | Observation                |
+|----------------|---------------------------------------------------------------------------|----------------------------|
+| 10             |  9, 5, 2, 8, 4, 0, 6, 3, 9, 5, 5, 1, 7, 3, 9, 6, 2, 8, 4, 0               | 出現重複 9 和 5，碰撞仍然存在  |
+| 11             | 10, 6, 2, 9, 4, 0, 7, 3, 10, 5, 5, 1, 8, 4, 10, 6, 2, 9, 5, 0             | 分布比 10 好，但仍有碰撞 |
+| 37             | 36, 22, 7, 30, 16, 2, 25, 11, 34, 20, 19, 5, 27, 13, 36, 22, 8, 31, 17, 3 | 幾乎沒有規律，分布最均勻，碰撞最少  |
 
 ## Compilation, Build, Execution, and Output
 
@@ -43,13 +72,13 @@ Email: [alice0701lee@gmail.com]
 - The project uses a comprehensive Makefile that builds both C and C++ versions with proper flags:
   ```bash
   # Build both C and C++ versions
-  make all
+  .\Makefile.bat
   
   # Build only C version
-  make c
+  .\Makefile.bat c
   
   # Build only C++ version
-  make cxx
+  .\Makefile.bat c++
   ```
 
 ### Manual Compilation (if needed)
@@ -155,20 +184,21 @@ Email: [alice0701lee@gmail.com]
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 - Example output for integers:
   ```
-  Hash table (m=10): [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-  Hash table (m=11): [10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  Hash table (m=37): [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, ...]
+  Hash table (m=10): [9, 5, 2, 8, 4, 0, 6, 3, 9, 5, 5, 1, 7, 3, 9, 6, 2, 8, 4, 0]
+  Hash table (m=11): 10, 6, 2, 9, 4, 0, 7, 3, 10, 5, 5, 1, 8, 4, 10, 6, 2, 9, 5, 0]
+  Hash table (m=37): [36, 22, 7, 30, 16, 2, 25, 11, 34, 20, 19, 5, 27, 13, 36, 22, 8, 31, 17, 3]
   ```
 - Example output for strings:
   ```
-  Hash table (m=10): ["cat", "dog", "bat", "cow", "ant", ...]
-  Hash table (m=11): ["fox", "cat", "dog", "bat", "cow", ...]
-  Hash table (m=37): ["bee", "hen", "pig", "fox", "cat", ...]
+  Hash table (m=10): [2, 4, 1, 9, 3, 8, 0, 5, 0, 3]
+  Hash table (m=11): [6, 4, 5, 1, 0, 8, 3, 1, 6, 8]
+  Hash table (m=37): [30, 34, 29, 17, 24, 29, 20, 17, 8, 19]
   ```
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
 ## Analysis
 - Prime vs non-prime `m`: Prime table sizes generally result in better distribution and fewer collisions.
+  - 從實驗結果可觀察到，當 m = 10（非質數）時，不論是整數或字串，都出現明顯碰撞 (e.g. bee & pig → index = 0)，分佈規律明顯。
 - Patterns or collisions: Non-prime table sizes tend to produce repetitive patterns, leading to more collisions.
 - Improvements: Use a prime table size and a well-designed hash function to enhance distribution.
 
