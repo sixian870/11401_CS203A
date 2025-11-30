@@ -109,6 +109,7 @@ Email: [alice0701lee@gmail.com]
 
 ### Result Snapshot
 - Example output for integers:
+
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(1).png)
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(2).png)
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(3).png)
@@ -118,7 +119,9 @@ Email: [alice0701lee@gmail.com]
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpp%20(3).png)
 
 
+
 - Example output for strings:
+
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(1).png)
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(2).png)
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(3).png)
@@ -126,6 +129,7 @@ Email: [alice0701lee@gmail.com]
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(1).png)
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(2).png)
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(3).png)
+
 
 
 - Observations: 整數與字串雜湊顯示，質數且較大的表格分布最均勻，碰撞最少。
