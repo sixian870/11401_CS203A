@@ -25,8 +25,8 @@ Email: [alice0701lee@gmail.com]
   index <- floor(m * fractional)
   ```
 - Rationale: 
-  - 參考課程所學 Multiplication Method 因為比起 Division Method 容易產生規律性碰撞，它不依賴資料特徵，能在各種 key 分佈下保持穩定表現。
-  - 使用 golden ratio (0.6180339887) 作為乘數 A，是因為不規則的無理數不會與 key 的某種規律產生共鳴，能減少碰撞。
+  - Based on the course material, the Multiplication Method was chosen because, compared to the Division Method, it is less prone to producing regular patterns of collisions. It does not depend on the characteristics of the data and can maintain stable performance across various key distributions.
+  - The golden ratio (0.6180339887) was used as the multiplier A because an irregular irrational number does not resonate with any regularities in the keys, which helps reduce collisions.
 
 ### Non-integer Keys
 - Formula:
@@ -47,9 +47,9 @@ Email: [alice0701lee@gmail.com]
     power <- (power* p) mod m
   ```
 - Rationale:
-  - 字串無法直接變成整數，所以要轉換成一個唯一的數值，參考 Polynomial Rolling Hash 技術，將每個字元依照位置計算權重。
-  - 為了避免 overflow，在p^i的部分加上 % m的步驟。
-  - p 選 31，是因為它是質數，能有效降低碰撞機率。
+  - Strings cannot be directly converted to integers, so they must be transformed into a unique numeric value. Using the Polynomial Rolling Hash technique, each character is assigned a weighted value based on its position in the string.
+  - The multiplier p is chosen as 31 because it is a prime number, which helps effectively reduce the probability of collisions.
+  - To prevent overflow, the p^i term is computed with a modulo m at each step.
 
 ## Experimental Setup
 - Table sizes tested (m): 10, 11, 37
@@ -62,9 +62,9 @@ Email: [alice0701lee@gmail.com]
 ## Results
 | Table Size (m) | Index Sequence                                                            | Observation                |
 |----------------|---------------------------------------------------------------------------|----------------------------|
-| 10             |  9, 5, 2, 8, 4, 0, 6, 3, 9, 5, 5, 1, 7, 3, 9, 6, 2, 8, 4, 0               | 出現重複 9 和 5，碰撞仍然存在  |
-| 11             | 10, 6, 2, 9, 4, 0, 7, 3, 10, 5, 5, 1, 8, 4, 10, 6, 2, 9, 5, 0             | 分布比 10 好，但仍有碰撞 |
-| 37             | 36, 22, 7, 30, 16, 2, 25, 11, 34, 20, 19, 5, 27, 13, 36, 22, 8, 31, 17, 3 | 幾乎沒有規律，分布最均勻，碰撞最少  |
+| 10             |  9, 5, 2, 8, 4, 0, 6, 3, 9, 5, 5, 1, 7, 3, 9, 6, 2, 8, 4, 0               | Repeated values 9 and 5 appear, so collisions still exist. |
+| 11             | 10, 6, 2, 9, 4, 0, 7, 3, 10, 5, 5, 1, 8, 4, 10, 6, 2, 9, 5, 0             | The distribution is better than for 10, but collisions remain. |
+| 37             | 36, 22, 7, 30, 16, 2, 25, 11, 34, 20, 19, 5, 27, 13, 36, 22, 8, 31, 17, 3 | There is almost no pattern, the distribution is the most uniform, and collisions are minimal. |
 
 ## Compilation, Build, Execution, and Output
 
@@ -111,32 +111,40 @@ Email: [alice0701lee@gmail.com]
 - Example output for integers:
 
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(1).png)
+  
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(2).png)
+  
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_C%20(3).png)
   
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpp%20(1).png)
+  
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpp%20(2).png)
+  
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpp%20(3).png)
 
 
-
 - Example output for strings:
+  - Hash Function Observation (C Version)
 
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(1).png)
+  
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(2).png)
+  
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_Cs%20(3).png)
+
+  - Hash Function Observation (C++ Version)
   
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(1).png)
+  
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(2).png)
+  
   ![image](https://github.com/sixian870/11401_CS203A/blob/main/OutputSnapShot/Output_cpps%20(3).png)
 
-
-
-- Observations: 整數與字串雜湊顯示，質數且較大的表格分布最均勻，碰撞最少。
+- Observations: The integer and string hash results show that prime and larger table sizes produce the most uniform distribution with the fewest collisions.
 - Example output for integers:
   ```
   Hash table (m=10): [9, 5, 2, 8, 4, 0, 6, 3, 9, 5, 5, 1, 7, 3, 9, 6, 2, 8, 4, 0]
-  Hash table (m=11): 10, 6, 2, 9, 4, 0, 7, 3, 10, 5, 5, 1, 8, 4, 10, 6, 2, 9, 5, 0]
+  Hash table (m=11): [10, 6, 2, 9, 4, 0, 7, 3, 10, 5, 5, 1, 8, 4, 10, 6, 2, 9, 5, 0]
   Hash table (m=37): [36, 22, 7, 30, 16, 2, 25, 11, 34, 20, 19, 5, 27, 13, 36, 22, 8, 31, 17, 3]
   ```
 - Example output for strings:
@@ -145,26 +153,21 @@ Email: [alice0701lee@gmail.com]
   Hash table (m=11): [6, 4, 5, 1, 0, 8, 3, 1, 6, 8]
   Hash table (m=37): [30, 34, 29, 17, 24, 29, 20, 17, 8, 19]
   ```
-- Observations: 整數與字串雜湊顯示，質數且較大的表格分布最均勻，碰撞最少。
+- Observations: The integer and string hash results show that prime and larger table sizes produce the most uniform distribution with the fewest collisions.
 ## Analysis
-<<<<<<< HEAD
 - Prime vs non-prime `m`: 
-  - 比對 m = 10 與 m = 11 可觀察到，在 Multiplication Method 中無論是整數還是字串其實質數與非質數沒有太大的區別，分布都沒有規律，都有碰撞存在。
-  - 比對 m = 10 與 m = 37 可觀察到，在 m = 37 時無論是整數還是字串，分布都非常均勻，幾乎沒有碰撞存在。
-  - 所以推測在使用 Multiplication Method 時不需要要求 m 是否為質數，只要 m 越大就能讓碰撞越少。
+  - Comparing m = 10 and m = 11, the results show that using the Multiplication Method, there is no significant difference between prime and non-prime table sizes. Both integers and strings experience collisions, and the distribution exhibits some patterns.
+  - Comparing m = 10 and m = 37, it can be observed that with a larger table size (m = 37), the distribution of indices for both integers and strings becomes very uniform, with almost no collisions. This indicates that the Multiplication Method’s performance is mainly influenced by table size rather than whether it is a prime number.
+  - Overall, the experiment suggests that when using the Multiplication Method, it is not strictly necessary for m to be prime; choosing a larger table size alone can significantly reduce collisions and improve distribution uniformity.
+- Collisions and Patterns:
+  - For m = 11, integer indices repeat multiple times (e.g., 10, 5, 4), and string indices also collide (e.g., cat and pig both map to 6; cow and hen both map to 1), showing that small tables can still produce collisions even if the table size is prime.
+  - For m = 37, integer and string indices rarely repeat, showing a highly uniform distribution and indicating that the Multiplication Method works best with large tables.
+- Possible Improvements:
+  - Selecting a larger table size significantly reduces collisions.
+  - Using the linear transformation formula (h(k) = floor(m*(k*A mod 1))) produces uniform distribution for both integers and strings.
+  - Additional collision reduction can be achieved using rehashing or open addressing techniques if needed.
 
 ## Reflection
-1. 設計雜湊函式時，需要在簡單性與有效性之間取得平衡，才能減少碰撞。
-2. 表格大小對分布均勻性影響明顯，本次實驗中使用 Multiplication Method 時，即使 m 不是質數，只要 m 夠大，碰撞就會減少。
-3. 使用線性轉換公式搭配較大的表格，可以產生最均勻的索引分布，對整數與字串雜湊皆適用。
-=======
-- Prime vs non-prime `m`: Prime table sizes generally result in better distribution and fewer collisions.
-  - 從實驗結果可觀察到，當 m = 10（非質數）時，不論是整數或字串，都出現明顯碰撞 (e.g. bee & pig → index = 0)，分佈規律明顯。
-- Patterns or collisions: Non-prime table sizes tend to produce repetitive patterns, leading to more collisions.
-- Improvements: Use a prime table size and a well-designed hash function to enhance distribution.
-
-## Reflection
-1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.
-2. Table size significantly impacts the uniformity of the hash distribution, with prime sizes performing better.
-3. The design using a prime table size and a linear transformation formula produced the most uniform index sequence.
->>>>>>> 04d004ff687ab6a5b8d870e436c903e161f6a329
+1. Designing hash functions requires a balance between computational simplicity and hashing effectiveness to maintain efficiency while minimizing collisions.
+2. Table size has a significant impact on hash distribution. The experiment shows that even if m is not prime, a sufficiently large table can significantly reduce collisions.
+3. Using the Multiplication Method’s linear transformation formula with a large table produces the most uniform index distribution for both integers and strings, which explains the good results observed in this experiment.
