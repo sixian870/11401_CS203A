@@ -196,6 +196,7 @@ Email: [alice0701lee@gmail.com]
   ```
 - Observations: 整數與字串雜湊顯示，質數且較大的表格分布最均勻，碰撞最少。
 ## Analysis
+<<<<<<< HEAD
 - Prime vs non-prime `m`: 
   - 比對 m = 10 與 m = 11 可觀察到，在 Multiplication Method 中無論是整數還是字串其實質數與非質數沒有太大的區別，分布都沒有規律，都有碰撞存在。
   - 比對 m = 10 與 m = 37 可觀察到，在 m = 37 時無論是整數還是字串，分布都非常均勻，幾乎沒有碰撞存在。
@@ -205,3 +206,14 @@ Email: [alice0701lee@gmail.com]
 1. 設計雜湊函式時，需要在簡單性與有效性之間取得平衡，才能減少碰撞。
 2. 表格大小對分布均勻性影響明顯，本次實驗中使用 Multiplication Method 時，即使 m 不是質數，只要 m 夠大，碰撞就會減少。
 3. 使用線性轉換公式搭配較大的表格，可以產生最均勻的索引分布，對整數與字串雜湊皆適用。
+=======
+- Prime vs non-prime `m`: Prime table sizes generally result in better distribution and fewer collisions.
+  - 從實驗結果可觀察到，當 m = 10（非質數）時，不論是整數或字串，都出現明顯碰撞 (e.g. bee & pig → index = 0)，分佈規律明顯。
+- Patterns or collisions: Non-prime table sizes tend to produce repetitive patterns, leading to more collisions.
+- Improvements: Use a prime table size and a well-designed hash function to enhance distribution.
+
+## Reflection
+1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.
+2. Table size significantly impacts the uniformity of the hash distribution, with prime sizes performing better.
+3. The design using a prime table size and a linear transformation formula produced the most uniform index sequence.
+>>>>>>> 04d004ff687ab6a5b8d870e436c903e161f6a329
