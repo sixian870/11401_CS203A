@@ -1,5 +1,6 @@
 # Assignment II : Array Selection Sort
 
+
 ## 一、 作業目的與說明
 
 - 本次作業的核心目標是實作並視覺化**選擇排序法（Selection Sort）**。
@@ -79,3 +80,7 @@
 - **插入/刪除（Insertion/Deletion）**：O(n)，因需要移動元素。
   
 - **本作業排序時間複雜度**：恆定為 $O(n^2)$。
+
+---
+
+範圍:[**Array**](./01_Array.pdf)
