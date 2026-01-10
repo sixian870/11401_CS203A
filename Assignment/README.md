@@ -12,7 +12,7 @@
       
     * 掌握 Markdown 語法撰寫技術文件。
 
-### [Assignment II：陣列與選擇排序法](./Assignment_II_README.md)
+### [Assignment II：陣列與選擇排序法](./AssignmentII/README.md)
 
 * **核心目標**：實作基礎陣列操作與排序演算法流程。
   
@@ -24,7 +24,7 @@
       
     * 分析 $O(n^2)$ 時間複雜度與 $O(1)$ 空間複雜度的特性。
 
-### [Assignment III：鏈結串列與選擇排序法](./Assignment_III_README.md)
+### [Assignment III：鏈結串列與選擇排序法](./AssignmentIII/README.md)
 
 * **核心目標**：透過實作比較線性資料結構（陣列 vs. 串列）的效能與權衡。
   
@@ -36,7 +36,7 @@
       
     * 深度討論陣列隨機存取與串列循序存取（Traversal）的效能差異。
 
-### [Assignment IV：雜湊函數設計與觀察 (Hash Function Design & Observation)](./Assignment_IV_README.md)
+### [Assignment IV：雜湊函數設計與觀察 (Hash Function Design & Observation)](./AssignmentIV/README.md)
 
 * **核心目標**：針對整數與字串設計高效雜湊函數，並觀察不同雜湊表大小（$m$）對碰撞（Collision）的影響。
   
@@ -50,7 +50,7 @@
       
     * **技術實踐**：同步提供 C23 與 C++23 版本，並透過 Makefile 自動化建置。
 
-### [Assignment V：樹狀結構之家族層級、建置與應用](./Assignment_V_README.md)
+### [Assignment V：樹狀結構之家族層級、建置與應用](./AssignmentV/README.md)
 
 * **核心目標**：探索樹狀結構的演化 path 與現實世界應用。
   
