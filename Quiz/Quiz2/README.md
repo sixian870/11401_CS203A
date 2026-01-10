@@ -1,4 +1,4 @@
-# Quiz II : 線性資料結構與 AI 協作學習
+# Quiz 2 : 線性資料結構與 AI 協作學習
 
 範圍 : [Linke List](02_Linke_List.pdf),[Stack](03_Stack.pdf),[Queue](04_Queue.pdf)
 
