@@ -2,7 +2,7 @@
 
 以下是本學期的五項核心作業簡介，可以點擊標題連結至詳細的學習紀錄：
 
-### [Assignment I：GitHub 初次建立與使用](./Assignment_I_README.md)
+### [Assignment I：GitHub 初次建立與使用](./AssignmentI/README.md)
 
 * **核心目標**：建立專業的開發環境與個人展示窗口。
   
