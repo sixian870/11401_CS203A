@@ -1,4 +1,4 @@
-# Quiz IV : 圖形遍歷與樹狀結構分類
+# Quiz 4 : 圖形遍歷與樹狀結構分類
 
 範圍 : [Tree](06_Tree.pdf),[Heap](07_Heap.pdf),[Graph](08_Graph.pdf),
 
