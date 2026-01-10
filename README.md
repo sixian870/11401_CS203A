@@ -21,4 +21,7 @@ Tuesday 15:10-17:00(R1102)<br><br>
 -校內信箱: s1131530@mail.yzu.edu.tw
 
 ## Repository Description
-資料結構課程之學習紀錄，包含課堂筆記、作業、程式碼與心得。
+資料結構課程之學習紀錄，包含:
+- [課堂筆記](./StudyNote)
+- [作業](./Assignment)
+- [小考](./Quiz)
