@@ -1,4 +1,4 @@
-# Quiz III : Hashing 的機制與碰撞處理
+# Quiz 3 : Hashing 的機制與碰撞處理
 
 範圍 : [Hashing](05_Hashing.pdf)
 
